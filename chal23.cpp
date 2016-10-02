@@ -8,13 +8,6 @@ class calendario{
     int dia;
     int mes;
     int ano;
-  public:
-    void scanData(){
-    cout<<"Insira a data: (dd mm aaaa)";
-      cin>>dia>>mes>>ano;
-      if(valida(dia, mes) == false)
-        scanData();
-    }
     bool valida(int dia, int mes){
       if(dia > 31 || mes > 12 || dia < 1 || mes < 1){
         cout<<"Erro: data inválida. Insira outra data.\n";
@@ -30,17 +23,24 @@ class calendario{
       }
       return true;
     }
-  int calculaDia(){
-    int bissexto = ano/4;
-    return (ano-1)*365 + bissexto + (mes-1)*30 + dia;
-  }
-  int calculaMes(){
-    return (ano-1)*12 + mes;
-  }
-  int calculaAno(){
-    return ano;
-  }
-};
+  public:
+    void scanData(){
+    cout<<"Insira a data: (dd mm aaaa)";
+      cin>>dia>>mes>>ano;
+      if(valida(dia, mes) == false)
+        scanData();
+    }
+    int calculaDia(){
+      int bissexto = ano/4;
+      return (ano-1)*365 + bissexto + (mes-1)*30 + dia;
+    }
+    int calculaMes(){
+      return (ano-1)*12 + mes;
+    }
+    int calculaAno(){
+      return ano;
+    }
+ };
 
 int main(){
   calendario data1, data2;
